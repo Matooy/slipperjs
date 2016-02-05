@@ -1,0 +1,35 @@
+<%= [
+{
+  url: "home",
+  label: 'SLIPPER',
+  attr: 'id="logo"'
+},
+{
+  url: "doc/",
+  label: "Document"
+}
+].map(function(v){ return '<a href="'+v.url+'" '+v.attr+'>' + v.label + '</a>' }).join(" | ")
+%>
+
+<div class="path">
+  <% if(typeof path !== 'undefined' && path.length){
+
+    var pt = path.split("/");
+    var m = "";
+
+    %><a href="home">home</a><%
+
+    for(var i = 0; i < pt.length; i++){
+      if(pt[i] == 'home' || !pt[i]) continue;
+      m = m + (pt[i+1] ? pt[i]+"/" : pt[i]);
+      %> / <a href="<%= m %>"><%= pt[i] %></a><%
+    }
+
+    if(param){
+      for(var k in param){
+        %><span style="font-size: .8em; padding: .1em 1em; border: 1px solid #ccc; margin-left: .5em; border-radius: .3em;"><%= param[k] %></span><%
+      }
+    }
+
+  } %>
+</div>

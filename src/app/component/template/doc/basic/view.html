@@ -1,0 +1,124 @@
+<h1>View</h1>
+
+<p>
+SlipperJS's view is similar to BackboneJS view.<br>
+(Also you can extend Backbone View object like <code>View.extend(Backbone.View)</code>.)
+</p>
+
+<h2>Properties</h2>
+
+<h3>template</h3>
+<h3>el</h3>
+<p>View's element definition.</p>
+
+<pre>
+<code>
+el: '&lt;div id="sample"&gt;'
+</code>
+</pre>
+
+<h3>$el</h3>
+<p>jQuery Object.</p>
+
+<h3>overrides</h3>
+
+<pre>
+<code>
+overrides: {
+  template:  "TEMPLATE_PATH",
+  cacheable: Boolean
+}
+</code>
+</pre>
+
+<h2>Methods</h2>
+
+<p>Usages for essential methods.</p>
+
+<h3>load_partials ( paths : Object, param : Object )</h3>
+
+<p>
+Load paths and apply
+</p>
+
+<pre>
+<code>
+load_partials({ header: "common/header" });
+</code>
+</pre>
+
+
+<h3>load_template ( path : String ) </h3>
+
+<p>
+This method will start loading a template file with <code>this.template</code> and <code>this.overrides.template</code>.
+<code>this.overrides.template</code> will always overrides path value.
+</p>
+
+
+<h2>Hooks</h2>
+
+<h3>init ( $.Deferred, Parameter )</h3>
+
+<p>
+This will be called when view instance is created.
+If <code>View.overrides.cacheable</code> is <code>true</code>, cached view's init() won't be called.<br>
+Always you have to resolve or reject 1st argument <code>$.Deferred</code> object.
+</p>
+
+<p>
+When you resolved $.Deferred and pass some parameter as 1st argument,<br>
+This parameter will be pass to <code>render</code>, <code>ready</code>, <code>inserted</code> methods.
+</p>
+
+<pre>
+<code>
+init: function( df : $.Deferred, param : Object ){
+  // View initialization success
+  return df.resolve(param);
+}
+</code>
+</pre>
+
+
+<h3>ready ( parameter : Object )</h3>
+
+<p>Called when <code>render()</code> is called.</p>
+
+<pre>
+<code>
+ready: function(param){
+  // Do something like this.
+  // this.$el.find('#something').html(param.sample)
+}
+</code>
+</pre>
+
+
+<h3>inserted ( parameter : Object )</h3>
+
+<p>Called when <code>this.$el</code>'s DOMNodeInserted events fired.</p>
+
+
+
+
+<h2>Action</h2>
+
+<p>
+When hash or query-string changed, action() method will be called.
+</p>
+
+<h3>Query: ?</h3>
+<p>
+?query changes trigger <code>do_<#HASH>({ param: query })</code>. If #hash is not set, only <code>action()</code> method will be called.
+</p>
+
+<h3>Hash: #</h3>
+
+<p>
+#hash changes trigger <code>do_<#HASH></code> action.<br>
+For example, URL is changed <code>/sample</code> to <code>/sample#say</code>,
+<code>do_say</code> action will be called.
+</p>
+
+<a href="doc/sample/action">See sample</a>

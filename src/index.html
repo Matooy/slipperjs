@@ -1,0 +1,50 @@
+<html>
+<head>
+
+<!--
+# Application base url
+Change to proper path from your DocumentRoot.
+
+* force overriden when running as cordova-app.
+* trailing slash is required!!
+
+cordova : ./
+ripple  : ./
+web     : /PATH/TO/WEBROOT/ or /
+
+-->
+<base id="application-base-path" href="/">
+
+
+<!--
+Metas ==== -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+<meta name="format-detection" content="telephone=no" />
+
+<!--
+Extras ==== -->
+<link rel="stylesheet" type="text/css" href="asset/extra/github-markdown.css" />
+<link rel="stylesheet" type="text/css" href="asset/extra/base.css" />
+<link rel="stylesheet" type="text/css" href="asset/extra/prism.css" />
+<script type="text/javascript" src="asset/extra/prism.js"></script>
+
+<!--
+Try to load cordova.js
+If you dont use with cordova, remove this part.
+
+<script type="text/javascript" src="static/cordova.js"></script>
+-->
+
+<title>Slipper</title>
+</head>
+<body>
+  <div id="container" class="markdown-body"></div>
+  <script type="text/javascript" src="app/core/init.js"></script>
+  <script>
+  Slipper.queue(function(app){
+    // Do something with app.
+  });
+  </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<h1>Sample - View actions</h1>
+
+<h2>Action</h2>
+
+<h3>Sample</h3>
+
+<pre>
+<code>
+'do_say': function(e){
+  this.$el.find('#action-previewer').text((e.param.extra || "Nothing special"));
+},
+// This will be called when #hash changed to '#say-again'
+'do_say_again': function(e){
+  e.param.extra = 'again';
+  this.do_say(e);
+},
+...
+</code>
+</pre>
+
+<div>
+<a href="#say">say</a>
+|
+<a href="#say-again">say-again</a>
+|
+<a href="?extra=FooBar#say">pass parameters</a>
+|
+<a href="?extra=New#say">pass parameters2</a>
+</div>
+
+<div id="action-previewer" style="border:1px solid #ccc; padding: 4px; margin: 12px auto;"></div>

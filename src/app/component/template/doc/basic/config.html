@@ -1,0 +1,46 @@
+<h1>Config</h1>
+
+<h2>main.js</h2>
+
+
+<dl>
+
+  <dt>default_dir_prefix</dt>
+  <dd>Define hidden directories prefix. (Will be ignored by Router)<br>Default: <code>@</code></dd>
+
+  <dt>path.view</dt>
+  <dd>View include path. Must be relative from app/ directory.<br>Default: <code>undefined</code></dd>
+
+  <dt>path.template</dt>
+  <dd>Template include path. Must be relative from app/ directory.<br>Default: <code>undefined</code></dd>
+
+</dl>
+
+
+<h2>routing.js</h2>
+
+<p>
+Overrides URL call to other path.
+</p>
+
+<pre>
+<code>
+"regexp_string/(.*)": {
+  path: "path/to/view",
+  param: {
+    "sample": "Value"
+  }
+}
+
+//=> new RegExp('^('+ regexp_string +')$');
+</code>
+</pre>
+
+<h3>Sample</h3>
+<pre>
+<code>
+"sample/(.*)+": {
+  path: "sample"
+}
+</code>
+</pre>

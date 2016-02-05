@@ -1,0 +1,38 @@
+<h1>Structure</h1>
+
+
+<h2>Overview</h2>
+
+<p>
+Basically, component/ directory is free space for developer.<br>
+But, template/ and view/ directory is reserved as default.
+</p>
+
+<pre>
+▾ component/    <- Your working space.
+  ▸ template/   <- Put all template files as .html
+  ▾ view/       <- Put all view files as .js
+    ▸ @layout   <- This directory is hidden. Unaccessable from Router.
+▸ config/       <- Configurations.
+▸ core/         <- Core files. Please don't touch, until the time comes!!
+▸ i18n/         <- i18n files.
+▸ module/       <- Extendable constructors.
+▸ vendor/       <- Vendors, external libraries and etc.
+</pre>
+
+
+<h2>Hidden directories</h2>
+
+<p>
+All files within a directory which name is started with "@" will be ignored by Router.<br>
+This means that you can hide files from basic page transition. 
+<br>(Be careful. This is the Client-Side framework. It is difficult to hide all things completely.)
+<br>
+If you want to make partial view files, make a directory like "@~~~" and put files in it.
+</p>
+
+<p>
+"@" is predefined as default. But you can change this char at <code>config/main.js</code>.<br>
+
+Please see also <a href="doc/basic/config">Basic: Config</a> page.
+</p>
